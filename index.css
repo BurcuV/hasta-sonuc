@@ -1,0 +1,25 @@
+.container{
+
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto Slab', serif;
+
+}
+
+
+.link a{
+    color: #3c763d;
+  }
+      .link a:hover{
+        background-color: #3c763d ;
+        transition: all 1s;
+      color: white;
+    
+      }
+    .buton .btn{
+      transition: all 1s;
+    }
+.card-text{
+font-size: 14px;
+}
+    
