@@ -14,7 +14,7 @@
 	<div class="container">
 		
 	<div class="row">
-		<div class="col">
+		<div class="col mt-4 mb-4" >
 	<form action="" method="post">
     <table class="table">
         <tr>
@@ -28,7 +28,7 @@
         </tr>
 		<tr>
             <td>Tarih</td>
-            <td><textarea name="tarih" class="form-control" ></textarea></td>
+            <td><input type="date" name="tarih" class="form-control"></textarea></td>
         </tr>
 		<tr>
             <td>Not</td>
@@ -61,9 +61,9 @@
 	}
 }
 	?> 
-		</div></div>
+		</div>
 		<div class="row">
-	<div class="col-md-7">
+	<div class="col-md-7 " style="margin: 0px auto;">
 <table class="table text-center">
     
     <tr>
@@ -76,8 +76,8 @@
     </tr>
 
 	<?php
-		$sorgu=$baglanti->query("SELECT *FROM f1");
-		while($sonuc=$sorgu->fetch_assoc()){
+		$sorgu=$baglanti->query("SELECT * FROM f1");
+		while($sonuc = $sorgu->fetch_assoc()){
 			$id=$sonuc['id'];
 			$hastalik=$sonuc['hastalik'];
 			$doktor=$sonuc['doktor'];

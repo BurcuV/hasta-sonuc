@@ -1,5 +1,5 @@
 <?php
- include ("form_vt.php");
+ include ("form_vt.php"); //veritabanını sayfaya ekliyorum. Veritabanındaki değerler üzerinde düzenleme yapacağız.
  ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -11,12 +11,14 @@
  </head>
  <body>
      <?php
-        $sorgu = $baglanti ->query ("SELECT * FROM f1 WHERE id =".(int)$_GET['id']);
-        $sonuc= $sorgu -> fetch_assoc();
+        $sorgu = $baglanti ->query ("SELECT * FROM f1 WHERE id =".(int)$_GET['id']); //id değeri ile düzenlenecek verileri veritabanından alacak sorgu
+
+        $sonuc= $sorgu -> fetch_assoc(); //  fetch_assoc() ile verileri alıyoruz.
 
      ?>
-     <div class="container">
-<div class="col-md-6">
+     <div class="container"> <!-- Bootstrap responsive tasarım için sırasıyla container>row>col yapısını kullanıyorum.-->
+     <div class="row"> 
+     <div class="col">  
 
 <form action="" method="post">
     
@@ -25,44 +27,45 @@
         <tr>
             <td>Hastalik</td>
             <td><input type="text" name="hastalik" class="form-control" value="<?php echo $sonuc['hastalik']; 
-                 // Veritabanından verileri çekip inputların içine yazdırıyoruz. ?>">
+                  ?>">
             </td>
-        </tr>
+        </tr><!-- Veritabanından verileri çekip inputların içine yazdırıyoruz. -->
 
         <tr>
             <td>Doktor</td>
             <td><textarea name="doktor" class="form-control"><?php echo $sonuc['doktor']; ?></textarea></td>
-        </tr>
+        </tr> <!-- Veritabanından verileri çekip inputların içine yazdırıyoruz. -->
 
         <tr>
             <td>Tarih</td>
             <td><textarea name="tarih" class="form-control"><?php echo $sonuc['tarih']; ?></textarea></td>
 
-        </tr>
+        </tr> <!-- Veritabanından verileri çekip inputların içine yazdırıyoruz. -->
         <tr>
             <td>Yazı</td>
             <td><textarea name="yazi" class="form-control"><?php echo $sonuc['yazi']; ?></textarea></td>
 
-        </tr>
+        </tr> <!-- Veritabanından verileri çekip inputların içine yazdırıyoruz. -->
 
         <tr>
             <td></td>
             <td><input type="submit" class="btn btn-primary" value="Kaydet"></td>
-        </tr>
+        </tr> <!-- Veritabanından verileri çekip inputların içine yazdırıyoruz. -->
 
     </table>
-</form></div></div>
+</form></div></div></div>
 <?php
-if($_POST){
+if($_POST){ //post olup olmadığını kontrol ediyorum.
     $hastalik = $_POST['hastalik'];
     $doktor = $_POST['doktor'];
     $tarih = $_POST['tarih'];
-    $yazi = $_POST['yazi'];
+    $yazi = $_POST['yazi']; //post edildiyse verileri değişkenlerde tutuyorum.
 
-if($hastalik<>"" && $doktor<>"" && $tarih<>"" && $yazi<>""){
+if($hastalik<>"" && $doktor<>"" && $tarih<>"" && $yazi<>""){ // veri alanları boş mu diye bakıyorum
+    // formu düzenleyebilmek için veritabanındaki veriler için f1 tablosunu "UPDATE" diyorum. Update edilecek verileri id değeri ile seçiyorum.
     if($baglanti->query("UPDATE f1 SET hastalik ='$hastalik', doktor='$doktor', tarih='$tarih', yazi='$yazi' WHERE id =".$_GET ['id']))
 {
-    header("location:form_ekle.php");
+    header("location:form_ekle.php"); //veriler eklenirse form sayfasına gönderiyorum.
 
 }
 else{
