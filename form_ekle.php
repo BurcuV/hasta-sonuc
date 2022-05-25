@@ -15,7 +15,11 @@
 		
 	<div class="row">
 		<div class="col mt-4 mb-4" >
+			
 	<form action="" method="post">
+	<div class="">
+				<img src="resimler/rontgen-3.jpg" width="345" height="200" alt="">
+			</div>
     <table class="table">
         <tr>
             <td>Hastalık</td>
